@@ -1,5 +1,6 @@
 mod error;
 mod game;
+mod io;
 mod macros;
 
 use wasm_bindgen::prelude::wasm_bindgen;

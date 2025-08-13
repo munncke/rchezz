@@ -1,18 +1,17 @@
 use crate::make_enum;
+use paste::paste;
 #[derive(Debug)]
-struct ErrorContext {
-    line: usize,
-    column: usize,
+pub struct ErrorContext {
+    line: u32,
+    column: u32,
     filename: String,
 }
 #[derive(Debug)]
-struct BaseError {
+pub struct BaseError {
     code: u16,
     message: String,
     #[cfg(debug_assertions)]
     context: ErrorContext,
 }
 
-
-make_enum!(AppError, BaseError,[InputError]);
-
+make_enum!(AppError, BaseError, [(InputError, 1), (BoardError, 2)]);
